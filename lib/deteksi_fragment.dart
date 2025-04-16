@@ -179,7 +179,7 @@ class _DeteksiFragmentState extends State<DeteksiFragment>
           confidence.indexOf(confidence.reduce((a, b) => a > b ? a : b));
 
       // Tambahkan kondisi untuk memastikan kepercayaan minimal
-      final categories = ['Segar', 'Tidak Segar', 'Busuk'];
+      final categories = ['Busuk', 'Segar', 'Tidak Segar'];
 
       String detectionCategory;
       double maxConfidence = confidence[maxIndex];
@@ -197,9 +197,9 @@ class _DeteksiFragmentState extends State<DeteksiFragment>
         _confidenceValues = confidence;
         _detectionResult = 'Hasil Deteksi: $detectionCategory'
             '\nKepercayaan: ${(maxConfidence * 100).toStringAsFixed(2)}%\n'
-            'Segar: ${(confidence[0] * 100).toStringAsFixed(2)}%\n'
-            'Tidak Segar: ${(confidence[1] * 100).toStringAsFixed(2)}%\n'
-            'Busuk: ${(confidence[2] * 100).toStringAsFixed(2)}%';
+            'Busuk: ${(confidence[0] * 100).toStringAsFixed(2)}%\n'
+            'Segar: ${(confidence[1] * 100).toStringAsFixed(2)}%\n'
+            'Tidak Segar: ${(confidence[2] * 100).toStringAsFixed(2)}%';
       });
     } catch (e) {
       print('Error processing image: $e');
@@ -209,7 +209,6 @@ class _DeteksiFragmentState extends State<DeteksiFragment>
     }
   }
 
-  // Method build tetap sama seperti sebelumnya
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(

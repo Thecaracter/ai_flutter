@@ -3,10 +3,11 @@ import 'deteksi_fragment.dart';
 import 'jenis_fragment.dart';
 import 'tentang_fragment.dart';
 
-// Palette warna utama yang selaras dengan splash screen
-const Color primaryColor = Color(0xFF3B8D99); // Teal-biru yang lembut
-const Color secondaryColor = Color(0xFF6B6B83); // Abu-abu keunguan
-const Color accentColor = Color(0xFFAA4465); // Mauve kemerahan lembut
+// Palette warna utama yang lebih vibrant
+const Color primaryColor = Color(0xFFE48C97); // Vibrant pink
+const Color secondaryColor = Color(0xFFF7B6C2); // Medium pink
+const Color accentColor = Colors.white; // White
+const Color textColor = Color(0xFF333333); // Darker text for better contrast
 
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({super.key});
@@ -44,10 +45,11 @@ class _BottomNavBarState extends State<BottomNavBar> {
         ),
         backgroundColor: Colors.white,
         elevation: 0,
-        foregroundColor: secondaryColor,
+        foregroundColor: textColor,
       ),
       body: Container(
-        color: Colors.grey.shade50, // Latar belakang subtle
+        color: secondaryColor
+            .withOpacity(0.2), // Background with some transparency
         child: _fragments[_selectedIndex],
       ),
       bottomNavigationBar: Container(
@@ -79,7 +81,8 @@ class _BottomNavBarState extends State<BottomNavBar> {
             ),
           ],
           currentIndex: _selectedIndex,
-          selectedItemColor: primaryColor,
+          selectedItemColor:
+              Color(0xFFD64D5C), // Vibrant dark pink for better visibility
           unselectedItemColor: Colors.grey,
           backgroundColor: Colors.white,
           type: BottomNavigationBarType.fixed,
@@ -97,15 +100,16 @@ class GoatPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final Paint mainColor = Paint()
-      ..color = const Color(0xFF6B6B83)
+      ..color = const Color(0xFFE48C97) // Vibrant pink
       ..style = PaintingStyle.fill;
 
     final Paint secondaryColor = Paint()
-      ..color = const Color(0xFF3B8D99)
+      ..color =
+          const Color(0xFFD64D5C) // Darker vibrant pink for better contrast
       ..style = PaintingStyle.fill;
 
     final Paint outlinePaint = Paint()
-      ..color = const Color(0xFF6B6B83)
+      ..color = const Color(0xFFC13A49) // Strong outline color
       ..style = PaintingStyle.stroke
       ..strokeWidth = 2;
 
@@ -156,7 +160,7 @@ class GoatPainter extends CustomPainter {
     canvas.drawCircle(
       Offset(centerX - 15, centerY + 10),
       3,
-      Paint()..color = const Color(0xFF3B8D99),
+      Paint()..color = const Color(0xFFD64D5C), // Darker vibrant pink
     );
 
     // Mata kanan
@@ -168,7 +172,7 @@ class GoatPainter extends CustomPainter {
     canvas.drawCircle(
       Offset(centerX + 15, centerY + 10),
       3,
-      Paint()..color = const Color(0xFF3B8D99),
+      Paint()..color = const Color(0xFFD64D5C), // Darker vibrant pink
     );
 
     // Hidung dan mulut
@@ -181,7 +185,7 @@ class GoatPainter extends CustomPainter {
         ),
         const Radius.circular(7.5),
       ),
-      Paint()..color = const Color(0xFF3B8D99),
+      Paint()..color = const Color(0xFFD64D5C), // Darker vibrant pink
     );
 
     // Garis mulut
@@ -189,7 +193,7 @@ class GoatPainter extends CustomPainter {
       Offset(centerX, centerY + 30),
       Offset(centerX, centerY + 38),
       Paint()
-        ..color = const Color(0xFF3B8D99)
+        ..color = const Color(0xFFD64D5C) // Darker vibrant pink
         ..strokeWidth = 2,
     );
   }

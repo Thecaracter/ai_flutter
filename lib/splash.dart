@@ -18,11 +18,9 @@ class _SplashScreenState extends State<SplashScreen>
   void initState() {
     super.initState();
 
-    // Inisialisasi controller untuk Lottie
     _lottieController =
         AnimationController(vsync: this, duration: const Duration(seconds: 4));
 
-    // Timer untuk mengarahkan ke halaman utama
     Timer(const Duration(seconds: 5), () {
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(
@@ -47,9 +45,9 @@ class _SplashScreenState extends State<SplashScreen>
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
             colors: [
-              Color(0xFF3B8D99), // Teal-biru yang lembut
-              Color(0xFF6B6B83), // Abu-abu keunguan
-              Color(0xFFAA4465), // Mauve kemerahan lembut
+              Color(0xFFE48C97),
+              Color(0xFFF7B6C2),
+              Colors.white,
             ],
           ),
         ),
@@ -57,12 +55,10 @@ class _SplashScreenState extends State<SplashScreen>
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // Lottie Animation
               Lottie.asset(
                 'assets/animations/splash.json',
                 controller: _lottieController,
                 onLoaded: (composition) {
-                  // Mulai animasi Lottie
                   _lottieController
                     ..duration = composition.duration
                     ..forward();
@@ -70,10 +66,7 @@ class _SplashScreenState extends State<SplashScreen>
                 width: 300,
                 height: 300,
               ),
-
               const SizedBox(height: 30),
-
-              // Nama aplikasi dengan style modern
               Column(
                 children: [
                   Text(
@@ -81,13 +74,13 @@ class _SplashScreenState extends State<SplashScreen>
                     style: TextStyle(
                       fontSize: 30,
                       fontWeight: FontWeight.w700,
-                      color: Colors.white,
+                      color: Color(0xFF333333),
                       letterSpacing: 0.5,
                       shadows: [
                         Shadow(
                           offset: const Offset(0, 1),
                           blurRadius: 3.0,
-                          color: Colors.black.withOpacity(0.2),
+                          color: Colors.black.withOpacity(0.3),
                         ),
                       ],
                     ),
@@ -98,25 +91,22 @@ class _SplashScreenState extends State<SplashScreen>
                     style: TextStyle(
                       fontSize: 22,
                       fontWeight: FontWeight.w600,
-                      color: Colors.white.withOpacity(0.95),
+                      color: Color(0xFF444444),
                       letterSpacing: 3.0,
                     ),
                   ),
                 ],
               ),
-
               const SizedBox(height: 30),
-
-              // Tagline dalam card elegant
               Container(
                 padding:
                     const EdgeInsets.symmetric(vertical: 12, horizontal: 24),
                 decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.15),
+                  color: Color(0xFFD64D5C).withOpacity(0.25),
                   borderRadius: BorderRadius.circular(30),
                   border: Border.all(
-                    color: Colors.white.withOpacity(0.3),
-                    width: 1,
+                    color: Color(0xFFD64D5C),
+                    width: 1.5,
                   ),
                 ),
                 child: const Text(
@@ -124,8 +114,9 @@ class _SplashScreenState extends State<SplashScreen>
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 15,
-                    color: Colors.white,
+                    color: Color(0xFF333333),
                     height: 1.4,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
               ),
